@@ -1,0 +1,47 @@
+{
+  "name": "qa-planning-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Agentic QA Planning Assistant - AI-powered test case generation and management",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "node --watch server/dev.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node server/dev.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npx playwright test",
+    "lint": "eslint . --ext .js,.jsx"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@libsql/client": "^0.14.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.468.0",
+    "morgan": "^1.10.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.1",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "jsdom": "^25.0.1",
+    "supertest": "^7.0.0",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}

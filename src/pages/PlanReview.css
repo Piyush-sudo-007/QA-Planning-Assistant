@@ -1,0 +1,38 @@
+.plan-review-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.plan-header {
+  margin-bottom: 1.5rem;
+}
+
+.collapsible-group {
+  margin-bottom: 1.5rem;
+}
+
+.group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-panel-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .plan-review-layout {
+    grid-template-columns: 1fr;
+  }
+}
