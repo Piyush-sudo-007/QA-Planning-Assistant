@@ -9,10 +9,17 @@ const router = express.Router();
 // POST /api/auth/register
 router.post('/register', async (req, res, next) => {
   try {
-    const { email, name, password } = req.body;
+    let body = req.body || {};
+    if (typeof body === 'string') {
+      try { body = JSON.parse(body); } catch (e) { body = {}; }
+    }
+
+    const { email, name, password } = body;
 
     if (!email || !name || !password) {
-      return res.status(400).json({ error: 'Email, name, and password are required.' });
+      return res.status(400).json({
+        error: 'Email, name, and password are all required. Please ensure password is at least 6 characters.',
+      });
     }
 
     if (password.length < 6) {
@@ -49,7 +56,12 @@ router.post('/register', async (req, res, next) => {
 // POST /api/auth/login
 router.post('/login', async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    let body = req.body || {};
+    if (typeof body === 'string') {
+      try { body = JSON.parse(body); } catch (e) { body = {}; }
+    }
+
+    const { email, password } = body;
 
     if (!email || !password) {
       return res.status(400).json({ error: 'Email and password are required.' });
